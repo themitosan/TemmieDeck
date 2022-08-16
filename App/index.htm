@@ -1,0 +1,159 @@
+<!-- Hällò! -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>TemmieDeck - Loading</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+
+		<!-- Main app -->
+		<div class="APP_MAIN" id="APP_MAIN">
+			
+			<!-- Audio Player -->
+			<div class="DIV_PLAYER" id="DIV_PLAYER">
+				
+				<!-- Audio Controls -->
+				<div class="DIV_AUDIO_CONTROLS">
+
+					Audio 1: <label id="AUDIO_LABEL_TRACK_NAME_1" class="LABEL_AUDIO_PLAYER_paddingFix">No audio playing</label><br>
+					<audio id="AUDIO_PLAYER_1" class="AUDIO_PLAYER" volume="0" controls></audio>
+
+					Audio 2: <label id="AUDIO_LABEL_TRACK_NAME_2" class="LABEL_AUDIO_PLAYER_paddingFix">No audio playing</label><br>
+					<audio id="AUDIO_PLAYER_2" class="AUDIO_PLAYER" volume="0" controls></audio>
+
+				</div>
+
+				<!-- Audio Volume -->
+				<div class="AUDIO_PLAYER_CONTROLS">
+
+					Volume: <label id="AUDIO_LABEL_VOLUME_1">0</label>%<br>
+					<input type="range" min="0" max="1" step="0.001" value="0" id="AUDIO_VOLUME_1" class="INPUT_RANGE_transitionFix" onchange="MAIN.gui.updateLabels();" oninput="MAIN.gui.updateLabels();"><br>
+
+					Volume: <label id="AUDIO_LABEL_VOLUME_2">0</label>%<br>
+					<input type="range" min="0" max="1" step="0.001" value="0" id="AUDIO_VOLUME_2" class="INPUT_RANGE_transitionFix" onchange="MAIN.gui.updateLabels();" oninput="MAIN.gui.updateLabels();"><br>
+
+					<div class="align-center">
+
+						<!-- Mute players -->
+						<input type="checkbox" id="AUDIO_PLAYER_MUTE" onclick="MAIN.player.checkMuted();" onchange="MAIN.player.checkMuted();"> 
+						<label class="cursor-pointer" onclick="MAIN.gui.toggleCheckBox('AUDIO_PLAYER_MUTE');MAIN.player.checkMuted();">- Mute Audio</label><br>
+
+						<!-- Set custom volume -->
+						<input type="button" class="APP_BUTTON" value="Set Custom Volume" onclick="MAIN.player.setCustomAudioVolume();"><br><br>
+
+						<!-- Enable controls -->
+						<input type="checkbox" id="AUDIO_PLAYER_ENABLE_CONTROLS" checked="true" onchange="MAIN.player.checkMuted();"> 
+						<label class="cursor-pointer" onclick="MAIN.gui.toggleCheckBox('AUDIO_PLAYER_ENABLE_CONTROLS');">- Enable shortcuts</label>
+
+					</div>
+
+				</div>
+
+				<!-- Track Programming -->
+				<div class="AUDIO_TRACK_SETTINGS" id="AUDIO_TRACK_SETTINGS">
+						
+					<input type="checkbox" id="ENABLE_AUDIO_CUSTOM_LOOP" oninput="MAIN.player.effects.customLoop.setActive();"> 
+					<label class="cursor-pointer" onclick="MAIN.gui.toggleCheckBox('ENABLE_AUDIO_CUSTOM_LOOP');MAIN.player.effects.customLoop.setActive();">- Enable Custom Loop</label>
+
+					<div class="separator-0"></div>
+
+					Return to: <input type="number"  onfocus="MAIN.keyboard.disableKbFocus();" onblur="MAIN.keyboard.enableKbFocus();" id="TRACK_REPEAT_START" onchange="MAIN.player.effects.customLoop.saveSettings();" class="INPUT_NUMBER TRACK_SETTINGS_fusionFix" min="0" placeholder="0" step="0.000001"><br>
+					Trigger at: <input type="number" onfocus="MAIN.keyboard.disableKbFocus();" onblur="MAIN.keyboard.enableKbFocus();"  id="TRACK_REPEAT_END" onchange="MAIN.player.effects.customLoop.saveSettings();" class="INPUT_NUMBER TRACK_SETTINGS_fusionFix" min="0" placeholder="0" step="0.000001">
+					<br>
+
+					<div class="DIV_ICON_ON_OFF" id="ICON_LOOP_TRANSITION"></div> 
+					Transition: <label id="AUDIO_LABEL_LOOP_TRANSITION">500</label>ms<br>
+					<input type="range" min="100" max="5000" step="10" value="500" class="INPUT_RANGE_transitionFix" id="TRACK_REPEAT_TRANSITION" onchange="MAIN.player.effects.customLoop.updateTransition();" oninput="MAIN.player.effects.customLoop.updateTransition();"><br>
+
+					<!-- Set transition time -->
+					<input type="button" value="Get Loop Time" onclick="MAIN.player.effects.customLoop.getCurrentTime(0);" class="APP_BUTTON">
+					<input type="button" value="Get Trigger Time" onclick="MAIN.player.effects.customLoop.getCurrentTime(1);" class="APP_BUTTON"><br>
+
+					<!-- Test loop effect -->
+					<input type="button" value="Test Effect" onclick="MAIN.player.effects.customLoop.testEffect();" class="APP_BUTTON">
+
+				</div>
+
+				<!-- Track Transition -->
+				<div class="AUDIO_TRACK_TRANSITION" id="AUDIO_TRACK_TRANSITION">
+						
+					<div class="align-center">Audio Transition</div>
+					<div class="separator-0"></div>
+
+					Fade Master: <label id="AUDIO_LABEL_TRANSITION_MASTER">1000</label>ms<br>
+					<input type="range" value="1000" min="0" max="20000" step="1000" class="INPUT_RANGE_transitionFix" oninput="MAIN.player.effects.audioTransition.updateMaster();" id="AUDIO_SETTINGS_TRANSITION_MASTER"><br>
+
+					<div class="DIV_ICON_ON_OFF" id="ICON_TRANSITION_FADE_IN"></div>
+					Fade In: <label id="AUDIO_LABEL_TRANSITION_FADE_IN">1000</label>ms<br>
+					<input type="range" value="1000" min="110" max="20000" step="10" class="INPUT_RANGE_transitionFix" oninput="MAIN.player.effects.audioTransition.updateFadeIn();" id="AUDIO_SETTINGS_TRANSITION_FADE_IN"><br>
+
+					<div class="DIV_ICON_ON_OFF" id="ICON_TRANSITION_FADE_OUT"></div>
+					Fade Out: <label id="AUDIO_LABEL_TRANSITION_FADE_OUT">1000</label>ms<br>
+					<input type="range" value="1000" min="110" max="20000" step="10" class="INPUT_RANGE_transitionFix" oninput="MAIN.player.effects.audioTransition.updateFadeOut();" id="AUDIO_SETTINGS_TRANSITION_FADE_OUT">
+
+				</div>
+
+				<!-- Track Set -->
+				<div class="AUDIO_TRACK_SET" id="AUDIO_TRACK_SET">
+						
+					<div class="align-center">Track Set</div>
+					<div class="separator-0"></div>
+
+					Current Set: 
+					<input type="text" value="MAIN" onfocus="MAIN.keyboard.disableKbFocus();" onblur="MAIN.keyboard.enableKbFocus();" placeholder="MAIN" class="INPUT_NUMBER TRACK_SETTINGS_fusionFix" id="AUDIO_TRACK_SET_NAME"><br>
+
+					<input type="button" value="Save Set" onclick="MAIN.settings.save({renderTrackData: !1});" class="APP_BUTTON BTN_AUDIO_TRACK_SET">
+					<input type="button" value="Load Set" onclick="MAIN.settings.load({renderTrackData: !0});" class="APP_BUTTON BTN_AUDIO_TRACK_SET">
+
+				</div>
+
+				<!-- Track Info -->
+				<div class="AUDIO_TRACK_INFO" id="AUDIO_TRACK_INFO">
+						
+					<div class="align-center">Track Info</div>
+					<div class="separator-0"></div>
+
+					Current Track: <label id="AUDIO_LABEL_TRACK_INFO_currentTrack" class="TRACK_INFO_labelFix">Unknown</label><br>
+					File Size: <label id="AUDIO_LABEL_TRACK_INFO_fileSize" class="TRACK_INFO_labelFix">Unknown</label>
+
+					<div class="separator-1"></div>
+					C. Vol. Active: <label id="AUDIO_LABEL_TRACK_INFO_customVolumeEnabled" class="TRACK_INFO_labelFix">Unknown</label><br>
+					C. Loop Active: <label id="AUDIO_LABEL_TRACK_INFO_customLoopEnabled" class="TRACK_INFO_labelFix">Unknown</label>
+
+				</div>
+
+			</div>
+
+			<!-- Track List -->
+			<div class="DIV_TRACK_LIST" id="DIV_TRACK_LIST">
+				<!-- track list goes here -->
+			</div>
+
+		</div>
+
+		<!-- Scripts & Loader DOM -->
+		<div class="none">
+
+			<!-- File loader -->
+			<input type="file" id="FILE_LOADER">
+			
+			<!-- External -->
+			<script type="text/javascript" src="js/external/TMS.js"></script>
+			<script type="text/javascript" src="js/external/jquery-3.6.0.min.js"></script>
+
+			<!-- Main Scripts -->
+			<script type="text/javascript" src="js/keyboard.js"></script>
+			<script type="text/javascript" src="js/gui.js"></script>
+			<script type="text/javascript" src="js/file.js"></script>
+			<script type="text/javascript" src="js/effects.js"></script>
+			<script type="text/javascript" src="js/player.js"></script>
+			<script type="text/javascript" src="js/settings.js"></script>
+			<script type="text/javascript" src="js/main.js"></script>
+
+		</div>
+
+	</body>
+</html>

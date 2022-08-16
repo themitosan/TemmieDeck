@@ -1,0 +1,303 @@
+/*
+	TemmieDeck
+	styles.css
+*/
+html {
+	user-select: none;
+}
+body {
+	color: #fff;
+	font-size: 14px;
+	font-family: monospace;
+	background-color: #000;
+	text-shadow: 2px 2px 1px #0004;
+}
+input[type="checkbox"] {
+	cursor: pointer;
+}
+input[type="range"] {
+	cursor: col-resize;
+}
+input, select, audio {
+	outline: none;
+}
+input[type="button"] {
+	cursor: pointer;
+}
+input[type="number"], input[type="text"] {
+	text-align: center;
+}
+
+/*
+	Main Divs
+*/
+.APP_MAIN {
+	top: 0px;
+	left: 0px;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+.DIV_TRACK_LIST {
+	bottom: 0px;
+	padding: 6px;
+	overflow: auto;
+	position: absolute;
+	width: calc(100% - 12px);
+	height: calc(100% - 222px);
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	background-image: linear-gradient(0deg, #222, #444);
+}
+.INPUT_NUMBER {
+	color: #0f0;
+	width: 100px;
+	margin: 2px;
+	padding: 4px;
+	border: none;
+	border-radius: 4px;
+	background-color: #000;
+	font-family: monospace;
+}
+
+/*
+	Select
+*/
+.SELECT_OPTION {
+	margin: 2px;
+	border: none;
+	cursor: pointer;
+	border-radius: 4px;
+	padding: 2px 6px 2px 6px;
+	background-image: linear-gradient(0deg, #ddd, #fff);
+}
+.SELECT_OPTION:active {
+	background-image: linear-gradient(180deg, #ddd, #fff);	
+}
+
+/*
+	Buttons
+*/
+.APP_BUTTON {
+	margin: 2px;
+	border: none;
+	border-radius: 4px;
+	padding: 4px 10px 4px 10px;
+	background-image: linear-gradient(0deg, #ddd, #fff);
+}
+.APP_BUTTON:active {
+	background-image: linear-gradient(180deg, #ddd, #fff);
+}
+.APP_BUTTON_LOAD_TRACK {
+	border: none;
+	height: 20px;
+	margin: 0px 0px 0px 24px;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+	background-image: linear-gradient(0deg, #eee, #fff);
+}
+.APP_BUTTON_LOAD_TRACK:active {
+	background-image: linear-gradient(180deg, #eee, #fff);
+}
+
+/*
+	Audio Player
+*/
+.DIV_PLAYER {
+	z-index: 1;
+	padding: 4px;
+	height: 200px;
+	display: flex;
+	overflow: hidden;
+	flex-wrap: nowrap;
+	position: absolute;
+	align-items: center;
+	align-content: center;
+	width: calc(100% - 8px);
+	justify-content: center;
+	background-image: linear-gradient(90deg, #002, #000, #002);
+}
+.DIV_AUDIO_CONTROLS {
+	z-index: 10;
+	width: 340px;
+	height: 180px;
+	display: flex;
+	flex-wrap: wrap;
+	overflow: hidden;
+	align-items: center;
+	flex-direction: row;
+	align-content: center;
+	justify-content: center;
+	padding: 4px 4px 4px 14px;
+	background-color: #2a2a2a;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	background-image: linear-gradient(90deg, #5676b8, #434b5c);
+}
+.AUDIO_PLAYER {
+	margin: 6px;
+	min-width: 292px;
+}
+.AUDIO_PLAYER_CONTROLS {
+	top: 0px;
+	width: 187px;
+	padding: 4px;
+	height: 180px;
+	background-color: #434b5c;
+}
+.LABEL_AUDIO_PLAYER_paddingFix {
+	margin-left: 8px;
+}
+
+
+/*
+	Track Programming
+*/
+.AUDIO_TRACK_SETTINGS {
+	top: 4px;
+	height: 180px;
+	min-width: 243px;
+	text-align: center;
+	padding: 4px 10px 4px 10px;
+	background-color: #434b5c;
+}
+
+/*
+	Track Transition
+*/
+.AUDIO_TRACK_TRANSITION {
+	width: 200px;
+	height: 180px;
+	background-color: #434b5c;
+	padding: 4px 10px 4px 10px;
+}
+.INPUT_RANGE_transitionFix {
+	width: calc(100% - 6px);
+}
+
+/*
+	Track Set
+*/
+.AUDIO_TRACK_SET {
+	top: 4px;
+	width: 137px;
+	padding: 4px;
+	height: 180px;
+	text-align: center;
+	background-color: #434b5c;
+}
+.BTN_AUDIO_TRACK_SET {
+	min-width: 100px;
+}
+
+/*
+	Track Info
+*/
+.AUDIO_TRACK_INFO {
+	top: 4px;
+	width: 198px;
+	height: 180px;
+	overflow: hidden;
+	padding: 4px 14px 4px 10px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	background-image: linear-gradient(270deg, #5676b8, #434b5c);
+}
+.TRACK_INFO_labelFix {
+	left: 124px;
+	position: sticky;
+}
+
+/*
+	Track list
+*/
+.TRACK_HOLDER {
+	width: 100%;
+	height: 20px;
+	display: flex;
+	flex-wrap: nowrap;
+	border-radius: 2px;
+	align-items: center;
+	align-content: center;
+	margin: 2px 0px 4px 0px;
+	background-color: #505050;
+	box-shadow: 0px 0px 4px #0009;
+}
+.TRACK_SHORTCUT_ID {
+	width: 24px;
+	color: #000;
+	height: 20px;
+	display: flex;
+	flex-wrap: nowrap;
+	text-shadow: none;
+	position: absolute;
+	text-align: center;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	border-top-left-radius: 2px;
+	border-bottom-left-radius: 2px;
+	background-image: linear-gradient(0deg, #eee, #fff);
+}
+.TRACK_FILE_NAME {
+	width: 100%;
+	height: 20px;
+	display: flex;
+	overflow: hidden;
+	flex-wrap: nowrap;
+	padding-left: 8px;
+	align-items: center;
+	align-content: center;
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	background-image: linear-gradient(90deg, #777, #0000);
+}
+.TRACK_FILE_NAME_PLAY {
+	background-image: linear-gradient(90deg, #349e00, #0000);
+}
+
+/*
+	Separators
+*/
+.separator-0 {
+	height: 2px;
+	border-radius: 6px;
+	width: calc(100% - 4px);
+	margin: 4px 2px 4px 2px;
+	background-image: linear-gradient(90deg, #0000, #fff, #0000);
+}
+.separator-1 {
+	height: 2px;
+	border-radius: 6px;
+	width: calc(100% - 4px);
+	margin: 4px 2px 4px 2px;
+	background-image: linear-gradient(90deg, #fff, #0000);
+}
+
+/*
+	Icons
+*/
+.DIV_ICON_ON_OFF {
+	width: 10px;
+	height: 10px;
+	border-radius: 4px;
+	display: inline-flex;
+	background-image: linear-gradient(180deg, #f00, #800);
+}
+.DIV_ICON_ON_OFF_ACTIVE {
+	background-image: linear-gradient(180deg, #0f0, #080);
+}
+
+/*
+	Misc
+*/
+.align-center {
+	text-align: center;
+}
+.none {
+	display: none !important;
+}
+.cursor-pointer {
+	cursor: pointer;
+}
