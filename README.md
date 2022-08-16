@@ -8,7 +8,7 @@ A second (and more simple) music player.
 
 ## How to install
 - Clone / download this repository
-- Download nwjs version 0.66.1 (if possible, go with SDK version)
+- Download nwjs version <a href="https://dl.nwjs.io/v0.66.1/">0.66.1</a> (if possible, go with SDK version)
 - Paste all files from project inside nwjs folder
 - Run <code>nw</code>
 - Have some fun!
