@@ -12,6 +12,6 @@ A second (and more simple) music player.
 - Run <code>nw</code>
 - Have some fun!
 
-### Third-Party libraries
+## Third-Party libraries present on this project
 - <a href="https://jquery.com/">jQuery</a> - by OpenJS Foundation
 - <a href="https://github.com/themitosan/TMS.js">TMS.js</a> - by Temmie (aka. TheMitoSan)
