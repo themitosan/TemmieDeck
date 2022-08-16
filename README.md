@@ -3,7 +3,7 @@ A second (and more simple) music player.
 
 ## Requirements
 - <a href="https://nwjs.io/">nw (aka. node-webkit) </a> version 0.66.1.
-- Have some hardware that can run nw on backgrounf without any issue <i>(kinda obvious)</i>
+- Have some hardware that can run nw on background without any issue <i>(kinda obvious)</i>
 
 ## How to install
 - Clone / download this repository
