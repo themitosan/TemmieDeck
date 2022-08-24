@@ -11,9 +11,12 @@ tempFn_FILE = {
 			document.getElementById('FILE_LOADER').accept = extension;
 			document.getElementById('FILE_LOADER').files = null;
 			document.getElementById('FILE_LOADER').onchange = function(){
-				fnCallback(document.getElementById('FILE_LOADER').files);
-				document.getElementById('FILE_LOADER').accept = '';
-				document.getElementById('FILE_LOADER').files = null;
+				const cFiles = document.getElementById('FILE_LOADER').files;
+				if (cFiles !== void 0){
+					fnCallback(cFiles);
+					document.getElementById('FILE_LOADER').accept = '';
+					document.getElementById('FILE_LOADER').files = null;
+				}
 			}
 			TMS.triggerClick('FILE_LOADER');
 		}

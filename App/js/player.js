@@ -108,7 +108,7 @@ tempFn_PLAYER = {
 			document.getElementById('AUDIO_LABEL_TRACK_INFO_currentTrack').focus();
 
 		} else {
-			window.alert('ERROR: Unable to play track ' + trackId + '!\n\nReason: ' + errorReason);
+			window.alert('ERROR: Unable to play track ' + trackId + '!\nReason: ' + errorReason);
 		}
 
 	},
@@ -119,6 +119,7 @@ tempFn_PLAYER = {
 		document.getElementById('AUDIO_VOLUME_1').onchange = function(){
 			document.getElementById('AUDIO_PLAYER_1').volume = document.getElementById('AUDIO_VOLUME_1').value;
 		}
+		
 		document.getElementById('AUDIO_VOLUME_2').onchange = function(){
 			document.getElementById('AUDIO_PLAYER_2').volume = document.getElementById('AUDIO_VOLUME_2').value;
 		}
