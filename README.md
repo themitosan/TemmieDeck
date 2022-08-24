@@ -15,5 +15,5 @@ A second (and more simple) music player.
 - <i>...and have some fun!</i>
 
 ## Third-Party libraries present on this project
-- <a href="https://jquery.com/">jQuery</a> - by OpenJS Foundation
-- <a href="https://github.com/themitosan/TMS.js">TMS.js</a> - by Temmie <i>(aka. TheMitoSan)</i>
+- <a href="https://jquery.com/">jQuery</a> - by <a href="https://openjsf.org/" target="_blank">OpenJS Foundation</a>
+- <a href="https://github.com/themitosan/TMS.js">TMS.js</a> - by <a href="https://twitter.com/themitosan" target="_blank">Temmie <i>(aka. TheMitoSan)</a></i>
