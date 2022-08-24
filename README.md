@@ -1,6 +1,7 @@
 # TemmieDeck
 A second (and more simple) music player.
-<img src="https://pbs.twimg.com/media/FZCsL3PWQAI7j8O?format=jpg&name=large" width="720">
+
+<p align="center"><img src="https://pbs.twimg.com/media/FZCsL3PWQAI7j8O?format=jpg&name=large" width="720"></p>
 
 ## Requirements
 - <a href="https://nwjs.io/">nw (aka. node-webkit) </a> version 0.66.1.
