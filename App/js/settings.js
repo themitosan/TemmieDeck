@@ -115,6 +115,26 @@ tempFn_SETTINGS = {
 		// Update labels
 		MAIN.gui.updateTrackInfo();
 
+	},
+
+	// Clear all tracks
+	clearAlltracks: function(){
+
+		// Ask
+		const ask = confirm('Are you sure about this action?');
+
+		if (ask === !0){
+
+			// Reset tracks
+			for (var i = 0; i < 10; i++){
+				MAIN.settings.data.tracks[i] = { fileName: 'No file selected', src: '', customVolume: { enabled: !1, volume: 0.5 }, customLoop: { enabled: !1, loopStart: 0, loopEnd: 1000, transition: 500 } }
+			}
+
+			// Save settings and render
+			this.save({renderTrackData: !0});
+
+		}
+
 	}
 
 }

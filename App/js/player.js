@@ -49,9 +49,9 @@ tempFn_PLAYER = {
 	play: function(trackId){
 
 		// Variables
-		var pData = this.getCurrentPlayer(),
-			canPlay = !0,
+		var canPlay = !0,
 			errorReason = '',
+			pData = this.getCurrentPlayer(),
 			nPlayer = pData.nextPlayer,
 			sPlayer = pData.currentPlayer,
 			nextTrackData = MAIN.settings.data.tracks[trackId],
@@ -119,7 +119,7 @@ tempFn_PLAYER = {
 		document.getElementById('AUDIO_VOLUME_1').onchange = function(){
 			document.getElementById('AUDIO_PLAYER_1').volume = document.getElementById('AUDIO_VOLUME_1').value;
 		}
-		
+
 		document.getElementById('AUDIO_VOLUME_2').onchange = function(){
 			document.getElementById('AUDIO_PLAYER_2').volume = document.getElementById('AUDIO_VOLUME_2').value;
 		}

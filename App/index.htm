@@ -105,8 +105,9 @@
 					Current Set: 
 					<input type="text" value="MAIN" onfocus="MAIN.keyboard.disableKbFocus();" onblur="MAIN.keyboard.enableKbFocus();" placeholder="MAIN" class="INPUT_NUMBER TRACK_SETTINGS_fusionFix" id="AUDIO_TRACK_SET_NAME"><br>
 
-					<input type="button" value="Save Set" onclick="MAIN.settings.save({renderTrackData: !1});" class="APP_BUTTON BTN_AUDIO_TRACK_SET">
 					<input type="button" value="Load Set" onclick="MAIN.settings.load({renderTrackData: !0});" class="APP_BUTTON BTN_AUDIO_TRACK_SET">
+					<input type="button" value="Save Set" onclick="MAIN.settings.save({renderTrackData: !1});" class="APP_BUTTON BTN_AUDIO_TRACK_SET">
+					<input type="button" value="Clear Set" onclick="MAIN.settings.clearAlltracks();" class="APP_BUTTON BTN_AUDIO_TRACK_SET">
 
 				</div>
 

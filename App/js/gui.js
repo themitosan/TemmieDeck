@@ -1,6 +1,6 @@
 /*
 	TemmieDeck - gui.js
-	Graphics User Interface functions
+	GUI functions
 */
 
 tempFn_GUI = {
@@ -112,11 +112,8 @@ tempFn_GUI = {
 	/*
 		Label functions
 	*/
-	updateLabels: function(){
-		
-		/*
-			Volume levels
-		*/
+	updateLabels: function(){		
+		// Volume levels
 		for (var i = 1; i < 3; i++){
 			var cVolume = document.getElementById('AUDIO_VOLUME_' + i).value;
 			if (MAIN.gui.tempData['volume_' + i] !== cVolume){
@@ -124,7 +121,6 @@ tempFn_GUI = {
 				document.getElementById('AUDIO_LABEL_VOLUME_' + i).innerHTML = this.parsePercentage(cVolume, 1);
 			}
 		}
-
 	},
 
 	// Update track info (top-right corner)

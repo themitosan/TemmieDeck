@@ -4,7 +4,7 @@ A second (and more simple) music player.
 <p align="center"><img src="https://pbs.twimg.com/media/FZCsL3PWQAI7j8O?format=jpg&name=large" width="720"></p>
 
 ## Requirements
-- <a href="https://nwjs.io/">nw <i>(aka. node-webkit / nwjs)</i></a> version 0.66.1
+- <a href="https://nwjs.io/">nw <i>(aka. node-webkit / nwjs)</i></a> version 0.68.1
 - Have some hardware that can run nw on background without any issue <i>(kinda obvious)</i>
 
 ## How to install

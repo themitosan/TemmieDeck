@@ -57,9 +57,7 @@ const MAIN = {
 
 }
 
-/*
-	Delete all other modules
-*/
+// Delete all other modules
 delete tempFn_GUI;
 delete tempFn_FILE;
 delete tempFn_PLAYER;
