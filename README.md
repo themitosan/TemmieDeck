@@ -9,10 +9,10 @@ A second (and more simple) music player.
 
 ## How to install
 - Clone / download this repository
-- Download <code>nw</code> version <a href="https://dl.nwjs.io/v0.66.1/">0.66.1</a> <i>(if possible, go with SDK version)</i>
+- Download <code>nw</code> version <a href="https://dl.nwjs.io/v0.68.1/">0.68.1</a> <i>(if possible, go with SDK version)</i>
 - Paste all files from project inside <code>nw</code> folder <i>(<code>package.json</code> and <code>nw.exe / nw</code> must be at same folder)</i>
 - Run <code>nw</code>
-- <i>...and have some fun!</i>
+- <i>...and have some <u>fun</u>!</i>
 
 ## Third-Party libraries present on this project
 - <a href="https://jquery.com/">jQuery</a> - by <a href="https://openjsf.org/" target="_blank">OpenJS Foundation</a>
