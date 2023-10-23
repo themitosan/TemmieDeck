@@ -65,6 +65,4 @@ delete tempFn_KEYBOARD;
 delete tempFn_SETTINGS;
 
 // Start app
-window.onload = function(){
-	MAIN.init();
-}
+window.onload = MAIN.init();

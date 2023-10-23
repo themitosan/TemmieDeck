@@ -47,13 +47,8 @@ tempFn_SETTINGS = {
 			data = JSON.stringify(this.data),
 			cSet = document.getElementById('AUDIO_TRACK_SET_NAME').value;
 
-		// If is new set
-		if (localStorage.getItem('SETTINGS_DATA_' + cSet) === null){
-			window.alert('INFO - Set created successfull!\nName: ' + cSet);
-		}
-
-		// Save on localStorage
-		localStorage.setItem('SETTINGS_DATA_' + cSet, data);
+		// Write file
+		MAIN.nw.fs.writeFileSync(nw.__dirname + '/presets/SETTINGS_DATA_' + cSet + '.json', data, 'utf8');
 
 		// Post settings
 		if (options !== void 0){
@@ -77,13 +72,13 @@ tempFn_SETTINGS = {
 		const cSet = document.getElementById('AUDIO_TRACK_SET_NAME').value;
 
 		// If save not present, make it!
-		if (localStorage.getItem('SETTINGS_DATA_' + cSet) === null){
+		if (MAIN.nw.fs.existsSync(nw.__dirname + '/presets/SETTINGS_DATA_' + cSet + '.json') === !1){
 			window.alert('INFO - Creating set with name: ' + cSet);
 			this.save();
 		}
 
 		// Load settings
-		this.data = JSON.parse(localStorage.getItem('SETTINGS_DATA_' + cSet));
+		this.data = JSON.parse(MAIN.nw.fs.readFileSync(nw.__dirname + '/presets/SETTINGS_DATA_' + cSet + '.json', 'utf8'));
 
 		// Render Set Name
 		document.getElementById('AUDIO_TRACK_SET_NAME').value = this.data.setName;

@@ -88,11 +88,11 @@
 
 					<div class="DIV_ICON_ON_OFF" id="ICON_TRANSITION_FADE_IN"></div>
 					Fade In: <label id="AUDIO_LABEL_TRANSITION_FADE_IN">1000</label>ms<br>
-					<input type="range" value="1000" min="110" max="20000" step="10" class="INPUT_RANGE_transitionFix" oninput="MAIN.player.effects.audioTransition.updateFadeIn();" id="AUDIO_SETTINGS_TRANSITION_FADE_IN"><br>
+					<input type="range" value="1000" min="10" max="20000" step="10" class="INPUT_RANGE_transitionFix" oninput="MAIN.player.effects.audioTransition.updateFadeIn();" id="AUDIO_SETTINGS_TRANSITION_FADE_IN"><br>
 
 					<div class="DIV_ICON_ON_OFF" id="ICON_TRANSITION_FADE_OUT"></div>
 					Fade Out: <label id="AUDIO_LABEL_TRANSITION_FADE_OUT">1000</label>ms<br>
-					<input type="range" value="1000" min="110" max="20000" step="10" class="INPUT_RANGE_transitionFix" oninput="MAIN.player.effects.audioTransition.updateFadeOut();" id="AUDIO_SETTINGS_TRANSITION_FADE_OUT">
+					<input type="range" value="1000" min="10" max="20000" step="10" class="INPUT_RANGE_transitionFix" oninput="MAIN.player.effects.audioTransition.updateFadeOut();" id="AUDIO_SETTINGS_TRANSITION_FADE_OUT">
 
 				</div>
 
@@ -107,7 +107,7 @@
 
 					<input type="button" value="Load Set" onclick="MAIN.settings.load({renderTrackData: !0});" class="APP_BUTTON BTN_AUDIO_TRACK_SET">
 					<input type="button" value="Save Set" onclick="MAIN.settings.save({renderTrackData: !1});" class="APP_BUTTON BTN_AUDIO_TRACK_SET">
-					<input type="button" value="Clear Set" onclick="MAIN.settings.clearAlltracks();" class="APP_BUTTON BTN_AUDIO_TRACK_SET">
+					<input type="button" value="Clear Set" onclick="MAIN.settings.clearAlltracks();" class="APP_BUTTON BTN_AUDIO_TRACK_SET APP_BUTTON_CLEAR_SET">
 
 				</div>
 
@@ -120,9 +120,12 @@
 					Current Track: <label id="AUDIO_LABEL_TRACK_INFO_currentTrack" class="TRACK_INFO_labelFix">Unknown</label><br>
 					File Size: <label id="AUDIO_LABEL_TRACK_INFO_fileSize" class="TRACK_INFO_labelFix">Unknown</label>
 
-					<div class="separator-1"></div>
+					<div class="separator-0"></div>
 					C. Vol. Active: <label id="AUDIO_LABEL_TRACK_INFO_customVolumeEnabled" class="TRACK_INFO_labelFix">Unknown</label><br>
 					C. Loop Active: <label id="AUDIO_LABEL_TRACK_INFO_customLoopEnabled" class="TRACK_INFO_labelFix">Unknown</label>
+
+					<div class="separator-0"></div>
+					Use Shift + Number to play
 
 				</div>
 

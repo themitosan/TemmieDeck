@@ -8,7 +8,9 @@ tempFn_KEYBOARD = {
 	// Super Keys
 	superKeys: {
 		ctrlLeft: !1,
-		ctrlRight: !1
+		ctrlRight: !1,
+		shiftLeft: !1,
+		shitRight: !1
 	},
 
 	// Initialize key
@@ -48,6 +50,8 @@ tempFn_KEYBOARD = {
 		const kType = kp.code,
 			enableControls = document.getElementById('AUDIO_PLAYER_ENABLE_CONTROLS').checked;
 
+		// console.info(kp);
+
 		// if controls are enabled
 		if (enableControls === !0){
 
@@ -63,6 +67,16 @@ tempFn_KEYBOARD = {
 					MAIN.keyboard.superKeys.ctrlRight = status;
 					break;
 
+				// Right Shift
+				case 'ShiftRight':
+					MAIN.keyboard.superKeys.shitRight = status;
+					break;
+
+				// Left Shift
+				case 'ShiftLeft':
+					MAIN.keyboard.superKeys.shiftLeft = status;
+					break;
+
 			}
 
 		}
@@ -73,12 +87,17 @@ tempFn_KEYBOARD = {
 	handleKbData: function(kp){
 
 		const kType = kp.code,
-			enableControls = document.getElementById('AUDIO_PLAYER_ENABLE_CONTROLS').checked;
+			enableControls = document.getElementById('AUDIO_PLAYER_ENABLE_CONTROLS').checked,
+			checkConditions = [
+				enableControls === !0,
+				MAIN.keyboard.superKeys.shiftLeft === !0,
+				MAIN.keyboard.superKeys.ctrlLeft === !1
+			];
 			
 		// console.info(kp);
 
 		// If controls are enabled
-		if (enableControls === !0){
+		if (checkConditions.indexOf(!1) === -1){
 
 			switch (kType){
 	
