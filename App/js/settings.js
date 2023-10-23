@@ -48,7 +48,7 @@ tempFn_SETTINGS = {
 			cSet = document.getElementById('AUDIO_TRACK_SET_NAME').value;
 
 		// Write file
-		MAIN.nw.fs.writeFileSync(nw.__dirname + '/presets/SETTINGS_DATA_' + cSet + '.json', data, 'utf8');
+		MAIN.nw.fs.writeFileSync(`${MAIN.file.fixPath(nw.__dirname)}/presets/SETTINGS_DATA_${cSet}.json`, data, 'utf8');
 
 		// Post settings
 		if (options !== void 0){
@@ -72,13 +72,13 @@ tempFn_SETTINGS = {
 		const cSet = document.getElementById('AUDIO_TRACK_SET_NAME').value;
 
 		// If save not present, make it!
-		if (MAIN.nw.fs.existsSync(nw.__dirname + '/presets/SETTINGS_DATA_' + cSet + '.json') === !1){
+		if (MAIN.nw.fs.existsSync(`${MAIN.file.fixPath(nw.__dirname)}/presets/SETTINGS_DATA_${cSet}.json`) === !1){
 			window.alert('INFO - Creating set with name: ' + cSet);
 			this.save();
 		}
 
 		// Load settings
-		this.data = JSON.parse(MAIN.nw.fs.readFileSync(nw.__dirname + '/presets/SETTINGS_DATA_' + cSet + '.json', 'utf8'));
+		this.data = JSON.parse(MAIN.nw.fs.readFileSync(`${MAIN.file.fixPath(nw.__dirname)}/presets/SETTINGS_DATA_${cSet}.json`, 'utf8'));
 
 		// Render Set Name
 		document.getElementById('AUDIO_TRACK_SET_NAME').value = this.data.setName;

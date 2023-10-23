@@ -7,7 +7,7 @@
 const MAIN = {
 
 	info: {
-		appVersion: '1.0.0'
+		appVersion: nw.App.manifest.version
 	},
 
 	// nw.js modules

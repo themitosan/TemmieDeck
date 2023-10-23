@@ -3,7 +3,7 @@
     "license": "GPL-2",
     "name": "TemmieDeck",
     "main": "App/index.htm",
-    "author": "Temmie (AKA. TheMitoSan)",
+    "author": "TemmieHeartz",
     "description": "A Better version of MythDeck. Yes.",
     "repository": "https://github.com/themitosan/TemmieDeck",
     "window": {
@@ -20,8 +20,5 @@
         "title": "TemmieDeck",
         "theme-color": "#a53491",
         "icon": "App/img/icon.png"
-    },
-    "webkit": {
-        "plugin": true
     }
 }
