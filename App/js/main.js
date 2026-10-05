@@ -27,7 +27,7 @@ const MAIN = {
 	init: function(){
 
 		// Main label
-		const appLabel = 'TemmieDeck - Version ' + this.info.appVersion;
+		const appLabel = `TemmieDeck - Version ${this.info.appVersion}`;
 
 		// Log app name
 		console.info(appLabel);

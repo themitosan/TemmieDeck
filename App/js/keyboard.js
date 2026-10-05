@@ -47,7 +47,8 @@ tempFn_KEYBOARD = {
 	handleSuperKeys: function(kp, status){
 
 		// Variables
-		const kType = kp.code,
+		const
+			kType = kp.code,
 			enableControls = document.getElementById('AUDIO_PLAYER_ENABLE_CONTROLS').checked;
 
 		// console.info(kp);

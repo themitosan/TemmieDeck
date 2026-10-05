@@ -48,19 +48,20 @@ tempFn_GUI = {
 
 		// Update playing track	
 		for (var i = 0; i < 10; i++){
-			TMS.removeClass('TRACK_FILE_NAME_' + i, 'TRACK_FILE_NAME_PLAY');
+			TMS.removeClass(`TRACK_FILE_NAME_${i}`, 'TRACK_FILE_NAME_PLAY');
 		}
-		TMS.addClass('TRACK_FILE_NAME_' + cTrack, 'TRACK_FILE_NAME_PLAY');
+		TMS.addClass(`TRACK_FILE_NAME_${cTrack}`, 'TRACK_FILE_NAME_PLAY');
 
 		// Update track name
-		var sPlayer = 1, cPlayer = MAIN.player.data.currentPlayer;
-		if (cPlayer === 1){
-			sPlayer = 2;
-		}
-		document.getElementById('AUDIO_LABEL_TRACK_NAME_' + sPlayer).title = '';
-		document.getElementById('AUDIO_LABEL_TRACK_NAME_' + sPlayer).innerHTML = 'No audio playing';
-		document.getElementById('AUDIO_LABEL_TRACK_NAME_' + cPlayer).title = MAIN.settings.data.tracks[cTrack].fileName;
-		document.getElementById('AUDIO_LABEL_TRACK_NAME_' + cPlayer).innerHTML = this.filterTrackNameLength(MAIN.settings.data.tracks[cTrack].fileName);
+		var sPlayer = 1,
+			cPlayer = MAIN.player.data.currentPlayer;
+		
+		if (cPlayer === 1) sPlayer = 2;
+
+		document.getElementById(`AUDIO_LABEL_TRACK_NAME_${sPlayer}`).title = '';
+		document.getElementById(`AUDIO_LABEL_TRACK_NAME_${sPlayer}`).innerHTML = 'No audio playing';
+		document.getElementById(`AUDIO_LABEL_TRACK_NAME_${cPlayer}`).title = MAIN.settings.data.tracks[cTrack].fileName;
+		document.getElementById(`AUDIO_LABEL_TRACK_NAME_${cPlayer}`).innerHTML = this.filterTrackNameLength(MAIN.settings.data.tracks[cTrack].fileName);
 
 		// Update track info
 		this.updateTrackInfo();
@@ -75,11 +76,11 @@ tempFn_GUI = {
 		var HTML_TEMPLATE = '';
 		for (var i = 0; i < 10; i++){
 			const trackData = MAIN.settings.data.tracks[i];
-			HTML_TEMPLATE = '<div class="TRACK_HOLDER"><div class="TRACK_SHORTCUT_ID">' + i + '</div>' + 
-							'<input type="button" class="APP_BUTTON_LOAD_TRACK" onclick="MAIN.player.loadTrack(' + i + ');" value="Load File">' +
-							'<div class="TRACK_FILE_NAME" id="TRACK_FILE_NAME_' + i + '">No file loaded</div>' + 
-							'<input type="checkbox" title="Enable custom volume" id="TRACK_ENABLE_CUSTOM_VOLUME_' + i + '" onchange="MAIN.settings.getCustomVolume(' + i + ');">' +
-							'<input type="range" min="0" title="Custom volume level" max="1" step="0.001" id="TRACK_CUSTOM_VOLUME_' + i + '" onchange="MAIN.settings.getCustomVolume(' + i + ');"></div>';
+			HTML_TEMPLATE = `<div class="TRACK_HOLDER"><div class="TRACK_SHORTCUT_ID">${i}</div> 
+							<input type="button" class="APP_BUTTON_LOAD_TRACK" onclick="MAIN.player.loadTrack(${i});" value="Load File">
+							<div class="TRACK_FILE_NAME" id="TRACK_FILE_NAME_${i}">No file loaded</div> 
+							<input type="checkbox" title="Enable custom volume" id="TRACK_ENABLE_CUSTOM_VOLUME_${i}" onchange="MAIN.settings.getCustomVolume(${i});">
+							<input type="range" min="0" title="Custom volume level" max="1" step="0.001" id="TRACK_CUSTOM_VOLUME_${i}" onchange="MAIN.settings.getCustomVolume(${i});"></div>`;
 
 			// Append track list and render it's data
 			TMS.append('DIV_TRACK_LIST', HTML_TEMPLATE);
@@ -103,9 +104,7 @@ tempFn_GUI = {
 		document.getElementById('AUDIO_LABEL_LOOP_TRANSITION').innerHTML = MAIN.settings.data.tracks[MAIN.player.data.currentTrack].customLoop.transition;
 
 		// Set interval to update labels
-		setInterval(function(){
-			MAIN.gui.updateLabels();
-		}, 80);
+		setInterval(MAIN.gui.updateLabels, 80);
 
 	},
 
@@ -127,7 +126,8 @@ tempFn_GUI = {
 	updateTrackInfo: function(){
 
 		// Get current track
-		const cTrack = MAIN.player.data.currentTrack,
+		const
+			cTrack = MAIN.player.data.currentTrack,
 			customLoopEnabled = MAIN.settings.data.tracks[cTrack].customLoop.enabled.toString(),
 			customVolumeEnabled = MAIN.settings.data.tracks[cTrack].customVolume.enabled.toString();
 
@@ -150,30 +150,22 @@ tempFn_GUI = {
 
 	// Toggle checkbox
 	toggleCheckBox: function(domId){
-		var state = document.getElementById(domId).checked;
-		if (state === !0){
-			state = !1;
-		} else {
-			state = !0;
-		}
+		var state = JSON.parse(document.getElementById(domId).checked);
+		if (state === !0) state = !1;
 		document.getElementById(domId).checked = state;
 	},
 
 	// Parse percentage
 	parsePercentage: function(current, maximum){
 		var res = 0;
-		if (current !== void 0 && maximum !== void 0){
-			res = Math.floor((current / maximum) * 100);
-		}
+		if (current !== void 0 && maximum !== void 0) res = Math.floor((current / maximum) * 100);
 		return res;
 	},
 
 	// Filter track name length
 	filterTrackNameLength: function(trackName){
 		var res = trackName;
-		if (trackName.length > 30){
-			res = trackName.slice(0, 25) + '...';
-		}
+		if (trackName.length > 30) res = trackName.slice(0, 25) + '...';
 		return res;
 	},
 

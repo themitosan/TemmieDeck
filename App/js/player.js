@@ -34,7 +34,8 @@ tempFn_PLAYER = {
 	getCurrentPlayer: function(){
 
 		// Variables
-		var nPlayer = 1, sPlayer = 2;
+		var nPlayer = 1,
+			sPlayer = 2;
 		
 		// Set next player
 		if (this.data.currentPlayer === 1){
@@ -43,6 +44,7 @@ tempFn_PLAYER = {
 		}
 
 		return {nextPlayer: nPlayer, currentPlayer: sPlayer};
+
 	},
 
 	// Play Music
@@ -64,14 +66,10 @@ tempFn_PLAYER = {
 		}
 
 		// Get custom loop transition time
-		if (this.effects.customLoop.isTransitionLoop === !0){
-			fadeTime = parseInt(nextTrackData.customLoop.transition + 10);
-		}
+		if (this.effects.customLoop.isTransitionLoop === !0) fadeTime = parseInt(nextTrackData.customLoop.transition + 10);
 
 		// Check if next file exists
-		if (MAIN.nw.fs.existsSync(nextTrackData.src) === !1){
-			blockPlay('The location for this track does not exists!');
-		}
+		if (MAIN.nw.fs.existsSync(nextTrackData.src) === !1) blockPlay('The location for this track does not exists!');
 
 		// Check if can play
 		if (canPlay === !0){
@@ -162,9 +160,7 @@ tempFn_PLAYER = {
 	updateVolume: function(mode){
 
 		// Fix missing args
-		if (mode === void 0){
-			mode = 0;
-		}
+		if (mode === void 0) mode = 0;
 
 		// Get variables
 		var factor = 0.001,
@@ -172,9 +168,7 @@ tempFn_PLAYER = {
 			cVolume = parseFloat(document.getElementById('AUDIO_VOLUME_' + cPlayer).value);
 
 		// Update factor
-		if (MAIN.keyboard.superKeys.ctrlLeft === !0){
-			factor = 0.01;
-		}
+		if (MAIN.keyboard.superKeys.ctrlLeft === !0) factor = 0.01;
 
 		// Decrease or increase
 		if (mode === 0){
@@ -184,13 +178,9 @@ tempFn_PLAYER = {
 		}
 
 		// Fix out of range values
-		if (cVolume < 0){
-			cVolume = 0;
-		}
+		if (cVolume < 0) cVolume = 0;
 
-		if (cVolume > 1){
-			cVolume = 1;
-		}
+		if (cVolume > 1) cVolume = 1;
 
 		// console.info('Mode: ' + mode + ' - Volume: ' + cVolume);
 

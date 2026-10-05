@@ -38,9 +38,7 @@ tempFn_SETTINGS = {
 		this.data.setName = document.getElementById('AUDIO_TRACK_SET_NAME').value;
 
 		// Temp fix
-		if (this.data.setName === ''){
-			this.data.setName = 'Unknown_Name';
-		}
+		if (this.data.setName === '') this.data.setName = 'Unknown_Name';
 
 		// Variables
 		var canRenderTracks = !0,

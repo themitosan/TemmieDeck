@@ -33,28 +33,20 @@ tempFn_EFFECTS = {
 			var trackId = options.track,
 				getPlayerData = MAIN.player.getCurrentPlayer();
 	
-			if (options === void 0){
-				trackId = 0;
-			}
+			if (options === void 0) trackId = 0;
 
 			// Get fade data
 			var fadeInVolume = 0.5,
 				fadeTime = parseInt(MAIN.settings.data.fadeIn);
 			
 			// Get loop transition 
-			if (this.customLoop.isTransitionLoop === !0){
-				fadeTime = MAIN.settings.data.tracks[trackId].customLoop.transition;
-			}
+			if (this.customLoop.isTransitionLoop === !0) fadeTime = MAIN.settings.data.tracks[trackId].customLoop.transition;
 
 			// Fix fade being zero
-			if (fadeTime < 1){
-				fadeTime = 1;
-			}
+			if (fadeTime < 1) fadeTime = 1;
 	
 			// Check if custom volume is enabled
-			if (MAIN.settings.data.tracks[trackId].customVolume.enabled === !0){	
-				fadeInVolume = MAIN.settings.data.tracks[trackId].customVolume.volume;
-			}
+			if (MAIN.settings.data.tracks[trackId].customVolume.enabled === !0) fadeInVolume = MAIN.settings.data.tracks[trackId].customVolume.volume;
 	
 			// Process fade in
 			$('#AUDIO_VOLUME_' + getPlayerData.currentPlayer).animate({value: fadeInVolume}, {duration: fadeTime, queue: !1});
@@ -86,9 +78,7 @@ tempFn_EFFECTS = {
 			this.status.fadeOutRunning = !0;
 
 			// Update visual cue
-			if (this.customLoop.isTransitionLoop === !1){
-				TMS.addClass('ICON_TRANSITION_FADE_OUT', 'DIV_ICON_ON_OFF_ACTIVE');
-			}
+			if (this.customLoop.isTransitionLoop === !1) TMS.addClass('ICON_TRANSITION_FADE_OUT', 'DIV_ICON_ON_OFF_ACTIVE');
 
 			// Get current player & fade time
 			var trackId = options.track,
@@ -96,9 +86,7 @@ tempFn_EFFECTS = {
 				fadeTime = parseInt(MAIN.settings.data.fadeOut);
 
 			// Fix
-			if (options === void 0){
-				trackId = 0;
-			}
+			if (options === void 0) trackId = 0;
 			
 			// Get loop transition 
 			if (this.customLoop.isTransitionLoop === !0){
@@ -106,9 +94,7 @@ tempFn_EFFECTS = {
 			}
 
 			// Fix fade being zero
-			if (fadeTime < 1){
-				fadeTime = 1;
-			}
+			if (fadeTime < 1) fadeTime = 1;
 	
 			// Process fade out
 			$('#AUDIO_VOLUME_' + getPlayerData.nextPlayer).animate({value: 0}, {duration: (fadeTime + 1), queue: !1});
@@ -174,7 +160,7 @@ tempFn_EFFECTS = {
 						MAIN.player.effects.customLoop.isTransitionLoop = !0;
 						MAIN.player.play(cTrack);
 						setTimeout(function(){
-							document.getElementById('AUDIO_PLAYER_' + cPlayerId.nextPlayer).currentTime = loopStart;
+							document.getElementById(`AUDIO_PLAYER_${cPlayerId.nextPlayer}`).currentTime = loopStart;
 						}, 80);
 
 					}
@@ -189,7 +175,8 @@ tempFn_EFFECTS = {
 		updateTransition: function(){
 
 			// Convert data
-			const cTrack = MAIN.player.data.currentTrack,
+			const
+				cTrack = MAIN.player.data.currentTrack,
 				transitionTime = parseInt(document.getElementById('TRACK_REPEAT_TRANSITION').value);
 
 			// Set data on current track
